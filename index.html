@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCF Student Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>🌟 GCF Student Portal</h1>
+            </div>
+        </header>
+
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <div class="form-container">
+            <!-- Page 1: Personal Details -->
+            <div class="page active" id="page1">
+                <h2>📝 Personal Information</h2>
+                <form id="personalForm">
+                    <div class="input-group">
+                        <label>Full Name *</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Email *</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="phone">
+                    </div>
+                    <div class="input-group">
+                        <label>Course</label>
+                        <select id="course" required>
+                            <option value="">Select Course</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Data Science">Data Science</option>
+                            <option value="Digital Marketing">Digital Marketing</option>
+                            <option value="Graphic Design">Graphic Design</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Batch</label>
+                        <input type="text" id="batch" placeholder="e.g., Batch 2024-A">
+                    </div>
+                    <button type="button" onclick="nextPage(1)">Next →</button>
+                </form>
+            </div>
+
+            <!-- Page 2: Username & Password -->
+            <div class="page" id="page2">
+                <h2>🔐 Create Account</h2>
+                <form id="accountForm">
+                    <div class="input-group">
+                        <label>Username *</label>
+                        <input type="text" id="username" required>
+                        <span id="usernameCheck" class="check"></span>
+                    </div>
+                    <div class="input-group">
+                        <label>Password *</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Confirm Password *</label>
+                        <input type="password" id="confirmPassword" required>
+                        <span id="passwordCheck" class="check"></span>
+                    </div>
+                    <div class="nav-buttons">
+                        <button type="button" onclick="prevPage(2)">← Previous</button>
+                        <button type="button" onclick="nextPage(2)">Next →</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Page 3: Quiz -->
+            <div class="page" id="page3">
+                <h2>✅ Verification Quiz</h2>
+                <p>Complete this short quiz to verify your registration.</p>
+                <form id="quizForm">
+                    <div class="question">
+                        <p>1. What does GCF stand for?</p>
+                        <label><input type="radio" name="q1" value="a" required> Global Coding Foundation</label>
+                        <label><input type="radio" name="q1" value="b"> Great Computer Federation</label>
+                        <label><input type="radio" name="q1" value="c"> Global Computer Foundation</label>
+                    </div>
+                    <div class="question">
+                        <p>2. Which programming language is used for web development?</p>
+                        <label><input type="radio" name="q2" value="a" required> Python</label>
+                        <label><input type="radio" name="q2" value="b"> JavaScript</label>
+                        <label><input type="radio" name="q2" value="c"> C++</label>
+                    </div>
+                    <div class="question">
+                        <p>3. What is the purpose of HTML?</p>
+                        <label><input type="radio" name="q3" value="a" required> Styling</label>
+                        <label><input type="radio" name="q3" value="b"> Structure</label>
+                        <label><input type="radio" name="q3" value="c"> Logic</label>
+                    </div>
+                    <div class="nav-buttons">
+                        <button type="button" onclick="prevPage(3)">← Previous</button>
+                        <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Page 4: Certificate -->
+            <div class="page" id="page4">
+                <h2>🎉 Registration Successful!</h2>
+                <div class="certificate-preview">
+                    <div class="cert-header">
+                        <h3>🏆 GCF Student Certificate</h3>
+                    </div>
+                    <div class="cert-body">
+                        <p><strong>Student Name:</strong> <span id="certName"></span></p>
+                        <p><strong>Course:</strong> <span id="certCourse"></span></p>
+                        <p><strong>Batch:</strong> <span id="certBatch"></span></p>
+                        <p><strong>Registration ID:</strong> <span id="certID"></span></p>
+                        <p><strong>Date:</strong> <span id="certDate"></span></p>
+                    </div>
+                    <div class="cert-footer">
+                        <p>Certified by Global Coding Foundation</p>
+                    </div>
+                </div>
+                <div class="download-section">
+                    <button onclick="downloadCertificate()" class="download-btn">📥 Download Certificate</button>
+                    <button onclick="resetForm()" class="reset-btn">Register Another Student</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
